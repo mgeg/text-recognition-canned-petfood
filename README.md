@@ -1,1 +1,1 @@
-# text-recognition-canned-petfood
+# Text Recognition From Canned Cat/Dog Food
