@@ -6,3 +6,7 @@ The project aims to generate the keyword summary from the given photo of the pet
 
 # Process
 Here is the sample pipeline of our works.
+
+<table><tr><td>
+<img src="images/process.png" width="550">
+</td></tr></table>
