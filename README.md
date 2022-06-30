@@ -28,9 +28,34 @@ pytesseract.pytesseract.tesseract_cmd = '/usr/local/bin/tesseract'
 content = pytesseract.image_to_string(Image.open("petfood/cat33.jpg"))
 ```
 
-
 ### Step 2. Keyword Extraction
+We use KeyBERT and Yake to grab the top 5 key words from labels. The key words usually indicate the main ingredients.
+```python
+from keybert import KeyBERT
 
+kw_model = KeyBERT()
+kw_model.extract_keywords(content, keyphrase_ngram_range=(1, 4),  use_mmr=True, diversity=0.7, top_n=5)
+```
+```bash
+('ingredients beef turkey', 0.5894),
+('vitamin b9 guaranteed analysis', 0.3423),
+('feeding guidelines feed lbs', 0.2506),
+('blue wilderness rocky', 0.1337),
+('potassium chloride', 0.2458)
+```
+```python
+import yake
+
+kw_extractor = yake.KeywordExtractor(dedupLim= 0.5,top= 5)
+kw_extractor.extract_keywords(content)
+```
+```bash
+('Beef Broth', 0.0038952617792384105),
+('Turkey Liver', 0.0038952617792384105),
+('Amino Acid Chelate', 0.004572391876902759),
+('Iron Amino Acid', 0.01781315316406169),
+('Vitamin', 0.019824890834276434)
+```
 
 
 ### Step 3. String Pattern Matching
