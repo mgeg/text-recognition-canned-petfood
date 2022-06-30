@@ -73,5 +73,6 @@ We used Pie Chart to compare the `KeyBERT` and `Yake` model based on the accurac
 
 # Conclusion
 In conclusion, our model in general perform well if our feed data is clear. In the further, we can still improve the model by considering improve the OCR results. The Tesseract sometimes failed to grab the words if the feed data is blurred. We calculated the OCR results accuracy with around 90%, therefore, we should consider to try new OCR model or train our own model to improve the accuracy.
+
 On the other hand, the `KeyBERT` model also have the room to improve. For some feed data, it failed to extract all of info in one picture. For example, one model is suppsed to extract beef, turkey and liver as the key ingredient, while the ouput only contains beef and turkey. In the future, we may consider use more customized word extraction model to be train.
 
