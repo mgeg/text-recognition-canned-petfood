@@ -7,15 +7,26 @@ The project aims to generate the keyword summary from the given photo of the pet
 # Data
 As there are no prepared data set for pet food label images, we grab the data from online web pages. As the product intro page has ingredient lists, we manually use those images as our feed data. We collected 77 images of the canned pet food labels in total, stored at [/data](https://github.com/mgeg/text-recognition-canned-petfood/tree/main/data). 
 
-# Process
-Here is the sample pipeline of our works.
+# Pipeline
+Here is the sample pipeline of our works. We are going to use image cat33 as an [example](https://github.com/mgeg/text-recognition-canned-petfood/blob/main/code/pipeline.ipynb). 
 
 <table><tr><td>
 <img src="images/process.png" width="550">
 </td></tr></table>
 
 ### Step 1. Text Recognition
+We ues the pytesseract as our OCR model to transfrom images to words.
+<table><tr><td>
+<img src="images/cat33.jpg" width="400">
+</td></tr></table>
 
+```python
+from PIL import Image
+import pytesseract
+
+pytesseract.pytesseract.tesseract_cmd = '/usr/local/bin/tesseract'
+content = pytesseract.image_to_string(Image.open("petfood/cat33.jpg"))
+```
 
 
 ### Step 2. Keyword Extraction
